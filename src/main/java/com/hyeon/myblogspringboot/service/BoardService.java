@@ -24,7 +24,7 @@ public class BoardService {
     }
 
     public Board save(Board board) {
-        board.setRegDate(LocalDateTime.now());
+        board.setRegDateTime(LocalDateTime.now());
         return boardRepository.save(board);
     }
 
@@ -33,7 +33,7 @@ public class BoardService {
                 .map(board -> {
                     board.setTitle(newBoard.getTitle());
                     board.setContent(newBoard.getContent());
-                    board.setModDate(LocalDateTime.now());
+                    board.setModDateTime(LocalDateTime.now());
                     return boardRepository.save(board);
                 }).orElseGet(() -> {
                     newBoard.setId(id);

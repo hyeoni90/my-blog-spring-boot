@@ -2,7 +2,6 @@ package com.hyeon.myblogspringboot.controller;
 
 import com.hyeon.myblogspringboot.model.Board;
 import com.hyeon.myblogspringboot.service.BoardService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -13,8 +12,11 @@ import java.util.Optional;
 @RequestMapping("api")
 public class BoardController {
 
-    @Autowired
-    private BoardService boardService;
+    private final BoardService boardService;
+
+    public BoardController(BoardService boardService) {
+        this.boardService = boardService;
+    }
 
     @GetMapping("/boards")
     public List<Board> boards() {

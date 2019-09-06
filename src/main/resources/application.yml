@@ -3,6 +3,8 @@ server:
 
 # Spring
 spring:
+  data:
+    rest.base-path: /api
   # Database
   datasource:
     url: jdbc:mysql://localhost:3306/my_blog?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&verifyServerCertificate=false&useSSL=false&serverTimezone=UTC
